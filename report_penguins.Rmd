@@ -23,6 +23,8 @@ The following scatter plot illustrates the relationship between flipper length a
 library(ggplot2)
 library(palmerpenguins)
 
+bug!
+  
 # Create scatter plot
 ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
   geom_point() +

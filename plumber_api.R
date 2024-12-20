@@ -8,7 +8,7 @@ library(googleCloudStorageR)
 library(tools)
 
 # Load environment variables from .env if it exists
-bucket <- Sys.getenv("GCS_BUCKET_NAME")
+bucket <- Sys.getenv("GCS_BUCKET_NAME", "portal_to_box")
 
 # Define config ----------------------------------------------------------------
 report_config <- tribble(
@@ -19,14 +19,15 @@ report_config <- tribble(
 )
 
 # Global Decorators ------------------------------------------------------------
-#* @apiTitle Return of Information
+#* @apiTitle Demo pipeline API
 #* @apiDescription Plumber API for generating and uploading reports.
 
 # Endpoint A -------------------------------------------------------------------
 #* Heartbeat endpoint for testing
 #* @get /heartbeat
 function() {
-  message("API is alive!")
+  msg <- "API is alive!"
+  message(msg)
 }
 
 # Endpoint B -------------------------------------------------------------------
