@@ -8,14 +8,14 @@ library(googleCloudStorageR)
 library(tools)
 
 # Load environment variables from .env if it exists
-bucket <- "portal_to_box"
+bucket <- Sys.getenv("GCS_BUCKET_NAME", "portal_to_box")
 
 # Define config ----------------------------------------------------------------
 report_config <- tribble(
   ~code,  ~box_folder_id, ~rmd_name,                      ~pdf_name,
-  "iris", "299557439792", "report_iris.rmd",              "Iris_Summary_Statistics.pdf",
-  "peng", "299558308044", "report_penguins.rmd",          "The_Penguin_Report.pdf",
-  "part", "299555190551", "report_participant_count.rmd", "Participant_Count_Report.pdf"
+  "iris", "299557439792", "report_iris.Rmd",              "Iris_Summary_Statistics.pdf",
+  "peng", "299558308044", "report_penguins.Rmd",          "The_Penguin_Report.pdf",
+  "part", "299555190551", "report_participant_count.Rmd", "Participant_Count_Report.pdf"
 )
 
 # Global Decorators ------------------------------------------------------------
