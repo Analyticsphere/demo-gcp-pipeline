@@ -8,7 +8,7 @@ library(googleCloudStorageR)
 library(tools)
 
 # Load environment variables from .env if it exists
-bucket <- Sys.getenv("GCS_BUCKET_NAME", "portal_to_box")
+bucket <- Sys.getenv("GCS_BUCKET_NAME")
 
 # Define config ----------------------------------------------------------------
 report_config <- tribble(
