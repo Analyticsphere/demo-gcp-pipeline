@@ -1,0 +1,43 @@
+---
+title: "Participant Count Report"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+# Set global chunk options to hide R code in the output
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+
+```{r load-data}
+# Load necessary libraries
+library(bigrquery)
+library(dplyr)
+library(knitr)
+library(glue)
+
+# Authenticate to BigQuery
+bigrquery::bq_auth()
+
+# Define BigQuery project (replace with your project ID if necessary)
+project_id <- "nih-nci-dceg-connect-stg-5519"
+
+# Define the SQL query to retrieve data (e.g., trips from January 2023)
+sql <- glue::glue(
+  "
+    SELECT 
+      COUNT(Connect_ID) AS total_verified_participants
+    FROM `FlatConnect.participants_JP` 
+    WHERE d_821247024 = '197316935' -- Verification Status is Verified
+      AND d_747006172 = '104430631' -- Withdrawn Cosent is No
+  "
+)
+
+# Execute the query and download the data
+data <- bigrquery::bq_project_query(project_id, sql) %>%
+  bigrquery::bq_table_download() 
+```
+
+The total number of participants in `r project_id` as of `r Sys.Date()` is `r data$total_verified_participants`.

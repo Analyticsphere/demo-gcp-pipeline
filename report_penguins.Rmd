@@ -1,0 +1,62 @@
+---
+title: "Palmer Penguins Report"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+# Set global chunk options to hide R code in the output
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+## Introduction
+
+This report provides a brief overview of the Palmer Penguins dataset, including a visualization and a summary table.
+
+## Scatter Plot of Flipper Length vs. Body Mass
+
+The following scatter plot illustrates the relationship between flipper length and body mass for different penguin species.
+
+```{r scatter-plot, fig.cap="Scatter plot of Flipper Length vs. Body Mass"}
+# Load necessary libraries
+library(ggplot2)
+library(palmerpenguins)
+
+# Create scatter plot
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
+  geom_point() +
+  labs(
+    title = "Flipper Length vs. Body Mass",
+    x = "Flipper Length (mm)",
+    y = "Body Mass (g)",
+    color = "Species"
+  ) +
+  theme_minimal()
+```
+
+## Summary Table
+
+The table below summarizes the average body mass and flipper length for each penguin species.
+
+```{r summary-table}
+# Load necessary libraries
+library(dplyr)
+library(knitr)
+
+# Create summary table
+summary_table <- penguins %>%
+  group_by(species) %>%
+  summarize(
+    Average_Body_Mass_g = mean(body_mass_g, na.rm = TRUE),
+    Average_Flipper_Length_mm = mean(flipper_length_mm, na.rm = TRUE)
+  )
+
+# Display table
+kable(summary_table, caption = "Average Body Mass and Flipper Length by Species")
+```
+
+## Conclusion
+
+This minimal report demonstrates a simple analysis of the Palmer Penguins dataset, showcasing both visualization and tabular summaries.
+
