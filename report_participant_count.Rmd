@@ -22,7 +22,7 @@ library(glue)
 bigrquery::bq_auth()
 
 # Define BigQuery project (replace with your project ID if necessary)
-project_id <- "nih-nci-dceg-connect-stg-5519"
+project_id <- Sys.getenv("PROJECT_ID", "nih-nci-dceg-connect-stg-5519")
 
 # Define the SQL query to retrieve data (e.g., trips from January 2023)
 sql <- glue::glue(
