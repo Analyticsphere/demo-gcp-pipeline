@@ -15,9 +15,13 @@ steps:
    args: ['run','deploy','demo-gcp-pipeline-api', 
    '--image=gcr.io/$PROJECT_ID/demo-gcp-pipeline-api:$COMMIT_SHA', 
    '--region=us-central1', 
-   '--service-account=$SERVICE_ACCOUNT_EMAIL', # Directly use the substitution variable
-   '--set-env-vars=PROJECT_ID=$PROJECT_ID'      # Set runtime env var for use in R]
+   '--service-account=$SERVICE_ACCOUNT_EMAIL',         # Directly use the substitution variable
+   '--set-env-vars=PROJECT_ID=$PROJECT_ID',            # Set runtime env var for use in R
+   '--set-env-vars=GCS_BUCKET_NAME=$_GCS_BUCKET_NAME'  # Set runtime env var for use in R
   ]
+
+options:
+  logging: CLOUD_LOGGING_ONLY
   
 images:
  - 'gcr.io/$PROJECT_ID/demo-gcp-pipeline-api:$COMMIT_SHA'
