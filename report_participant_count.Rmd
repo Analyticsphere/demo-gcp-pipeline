@@ -40,4 +40,4 @@ data <- bigrquery::bq_project_query(project_id, sql) %>%
   bigrquery::bq_table_download() 
 ```
 
-The total number of participants in `r project_id` as of `r Sys.Date()` is `r data$total_verified_participants`.
+The total number of participants in `r project_id` as of `r Sys.Date()` is `r data$total_verified_participants`. This is the current verified participant count in the Connect system.
