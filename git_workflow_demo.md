@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: sentence
----
-
 # GitHub Workflow Demo
 
 Below is a **step-by-step** git/GitHub workflow tutorial from Issue creation and feature branching to peer code review and merging.
