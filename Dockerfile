@@ -21,11 +21,11 @@ RUN Rscript -e 'tinytex::install_tinytex(repository = "illinois")'
 # Install R libraries
 RUN install2.r --error plumber bigrquery dplyr glue googleCloudStorageR gargle tools 
 
-# Copy R code to root directory in container
+# Copy R code to working directory in container
 COPY ./plumber_api.R .
 COPY ./report_iris.Rmd .
 COPY ./report_penguins.Rmd .
 COPY ./report_participant_count.Rmd .
 
 # Run R code
-ENTRYPOINT ["R", "-e","pr <- plumber::plumb('plumber_api.R'); pr$run(host='0.0.0.0', port=as.numeric(Sys.getenv('PORT')))"]
+ENTRYPOINT ["R", "-e", "pr <- plumber::plumb('plumber_api.R'); pr$run(host='0.0.0.0', port=as.numeric(Sys.getenv('PORT')))"]

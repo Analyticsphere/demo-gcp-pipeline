@@ -18,7 +18,7 @@ Below is a **step-by-step** git/GitHub workflow tutorial from Issue creation and
 2.  **Click on “Issues”** and then “New Issue”.
 3.  **Title** the Issue: “Modify `report_participant_count.Rmd` to add summary text”.
 4.  **Describe** what you plan to do (e.g., “Add a summary sentence to clarify the report’s context”).
-5.  Submit the new Issue. Suppose it gets **Issue #1**.
+5.  Submit the new Issue. Suppose it gets **Issue #2**.
 
 ------------------------------------------------------------------------
 
@@ -50,7 +50,7 @@ Then stage and commit:
 
 ``` bash
 git add report_participant_count.Rmd
-git commit -m "Add summary sentence to participant count report (#1)"
+git commit -m "Add summary sentence to participant count report (#2)"
 ```
 
 ------------------------------------------------------------------------
@@ -59,8 +59,9 @@ git commit -m "Add summary sentence to participant count report (#1)"
 
 ``` bash
 # Push the branch to GitHub
-git push -u origin feature/issue-1-add-summary
+git push -u origin feature/issue-2-add-summary
 ```
+> **Note**: The -u (or --set-upstream) flag links your local branch to the newly created remote branch. After this, the remote branch (named feature/issue-2-add-summary) appears in your GitHub repository.
 
 1.  **On GitHub**, find the prompt to create a PR from your new branch.\
 
@@ -68,9 +69,9 @@ git push -u origin feature/issue-1-add-summary
 
 3.  In the **description**, reference the issue:
 
-    `This PR resolves #1 by adding a summary sentence to clarify the participant count.`
+    `This PR resolves #2 by adding a summary sentence to clarify the participant count.`
 
-    (Using keywords like “Closes #1” will automatically close the issue upon merge.)
+    (Using keywords like “Closes #2” will automatically close the issue upon merge.)
 
 4.  **Create** the Pull Request.
 
@@ -101,17 +102,17 @@ git checkout main
 git pull origin main
 
 # (Optional) Delete the local feature branch
-git branch -d feature/issue-1-add-summary
+git branch -d feature/issue-2-add-summary
 
 # (Optional) Delete the remote feature branch
-git push origin --delete feature/issue-1-add-summary
+git push origin --delete feature/issue-2-add-summary
 ```
 
 ------------------------------------------------------------------------
 
 ### Summary of Best Practices
 
-1.  **Reference the Issue** in your branch name, commits, and PR description (e.g., “(#1)” or “Closes #1”).
+1.  **Reference the Issue** in your branch name, commits, and PR description (e.g., “(#2)” or “Closes #2”).
 2.  **Small, atomic commits** with clear messages help maintain a clean history.
 3.  **Peer Review** is crucial for code quality and knowledge sharing.
 4.  **Merge Strategy**: Decide whether to squash commits or merge them all. Consistency is key.
