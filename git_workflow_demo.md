@@ -57,9 +57,9 @@ git push -u origin feature/issue-2-add-summary
 ```
 > **Note**: The -u (or --set-upstream) flag links your local branch to the newly created remote branch. After this, the remote branch (named feature/issue-2-add-summary) appears in your GitHub repository.
 
-1.  **On GitHub**, find the prompt to create a PR from your new branch.\
+1.  **On GitHub**, find the prompt to create a PR from your new branch.
 
-2.  **Title** the PR: “Add summary sentence to the participant count report (#1)”\
+2.  **Title** the PR: “Add summary sentence to the participant count report (#1)”
 
 3.  In the **description**, reference the issue:
 
@@ -78,12 +78,12 @@ git push -u origin feature/issue-2-add-summary
 2.  **Reviewers Check the Changes**
     -   Examine the code diffs, commit messages, and discussion in the PR thread.
 3.  **Discuss & Provide Feedback**
-    -   Leave comments, questions, or suggestions inline.\
+    -   Leave comments, questions, or suggestions inline.
     -   Request modifications if needed.
 4.  **Author Responds & Updates**
     -   The PR author addresses comments and pushes changes to the same branch.
 5.  **Approve or Merge**
-    -   Once any concerns are resolved, approve and merge.\
+    -   Once any concerns are resolved, approve and merge.
     -   Merging will automatically close linked issues (e.g., “Closes #1”).
 
 ------------------------------------------------------------------------
