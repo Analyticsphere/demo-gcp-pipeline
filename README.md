@@ -17,3 +17,4 @@ The following GCP Services are used to implement this pipeline.
 ## Workflow Diagram
 
 ![](imgs/report-pipeline-diagram.png)
+
